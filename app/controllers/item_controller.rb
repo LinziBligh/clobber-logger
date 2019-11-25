@@ -7,7 +7,7 @@ class ItemController < ApplicationController
             @user=User.find_by_id(session[:user_id])
         erb :'users/index'
         else
-            redirect to "/login"
+            redirect to "users/login"
         end
     end
 
@@ -15,7 +15,7 @@ class ItemController < ApplicationController
         if Helpers.is_logged_in?(session)
         erb :"items/new"
         else 
-        redirect to "/login"
+        redirect to "users/login"
         end
     end
 
@@ -29,12 +29,12 @@ class ItemController < ApplicationController
         end
     end
 
-    get "/tweets/:id" do
+    get "/items/:id" do
         if Helpers.is_logged_in?(session)
-        @tweet=Tweet.find_by_id(params[:id])
+        @item=Item.find_by_id(params[:id])
         @user=User.find_by_id(session[:user_id])
-        erb :"tweets/show"
-        else redirect to "/login"
+        erb :"items/show"
+        else redirect to "users/login"
         end
     end
 
@@ -48,12 +48,12 @@ class ItemController < ApplicationController
         end
     end
 
-    post "/tweets/:id/edit" do
+    post "/items/:id/edit" do
         if Helpers.is_logged_in?(session)
-        @tweet=Tweet.find_by_id(params[:id])
+        @item=Item.find_by_id(params[:id])
         @user=User.find_by_id(session[:user_id])
-        erb :"tweets/edit" 
-        else redirect to "/login"  
+        erb :"items/edit" 
+        else redirect to "users/login"  
         end 
     end
 

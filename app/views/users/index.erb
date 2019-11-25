@@ -1,8 +1,8 @@
-<h1>"here are your items <%=@user.username%>"
+<h1>"here are your items <%=@user.username%>"</h1>
 
 <ul>
 <%@items.each do |item|%>
-<li><img src="<%=item.image%>" width="80"> <%=item.name%></li>
+<li><a href="/items/<%=item.id%>"><img src="<%=item.image%>" width="80"></a> <%=item.name%></li>
 <%end%>
 
 <br>
