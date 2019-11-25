@@ -66,18 +66,21 @@ class ItemController < ApplicationController
         end 
     end
 
-    patch  "/tweets/:id" do
+    patch  "/items/:id" do
 
-        @tweet=Tweet.find_by_id(params[:id])
+        @item=Item.find_by_id(params[:id])
         @user=User.find_by_id(session[:user_id])
-    if !session[:user_id]==@tweet.user_id
-        redirect to '/tweets'
-    elsif params[:content]==""
-            redirect to "/tweets/#{@tweet.id}/edit"
+    if !session[:user_id]==@item.user_id
+        redirect to '/items'
+    elsif params[:name]=="" || params[:cost]=="" || params[:category]==""
+            redirect to "/items/#{@item.id}/edit"
         else
-        @tweet.content=params[:content]
-        @tweet.save
-    redirect to '/tweets' 
+        @item.name=params[:name]
+        @item.cost=params[:cost]
+        @item.image=params[:image]
+        @item.category_id=params[:category_id]
+        @item.save
+    redirect to '/items' 
         end
     end
 

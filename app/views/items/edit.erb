@@ -1,1 +1,14 @@
-"edit page"
+<h1>Edit your item</h1>
+
+<form action="/items/<%=@item.id%>" method="post">
+<input type="hidden" name="_method" value="patch">
+<p>Item Description (ie Everlane black t-shirt): <input type="text" name="name" value="<%=@item.name%>"></p>
+<p>Item Cost (£): <input type="integer" name="cost" value="<%=@item.name%>"></p>
+<p>Link to image: <input type="text" name="image" value="<%=@item.image%>"></p>
+<p>Category: <select name="category">
+<%Category.all.each do |category|%>
+<option value="<%=category.id%>"><%=category.name%></option>
+ <%end%>
+</select></p>
+<input type="submit" value="Edit Item" >
+</form>
