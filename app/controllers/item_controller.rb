@@ -11,21 +11,21 @@ class ItemController < ApplicationController
         end
     end
 
-    get '/tweets/new' do
+    get '/items/new' do
         if Helpers.is_logged_in?(session)
-        erb :"tweets/new"
+        erb :"items/new"
         else 
         redirect to "/login"
         end
     end
 
-    post "/tweets" do
+    post "/items" do
         @user=User.find_by_id(session[:user_id])
-        if params[:content]==""
-            redirect to '/tweets/new'
+        if params[:name]=="" || params[:cost==""]
+            redirect to '/items/new'
         else
-            @user.tweets << Tweet.new(content: params[:content])
-        redirect to "/users/#{@user.slug}"      
+            @user.items << Item.create(params)
+        redirect to "/items"      
         end
     end
 

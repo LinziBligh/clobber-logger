@@ -4,4 +4,8 @@ class OutfitController < ApplicationController
         "here are your lovely outfits"
     end
 
+    get "outfits/new" do
+        "make a new outfit"
+    end
+
 end
