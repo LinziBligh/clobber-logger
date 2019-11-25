@@ -59,6 +59,16 @@ class OutfitController < ApplicationController
         redirect to '/outfits' 
             end
           end
+
+          delete "/outfits/:id" do
+            @outfit=Outfit.find_by_id(params[:id])
+            if Helpers.is_logged_in?(session) && @outfit.user_id==session[:user_id]
+                @outfit.destroy
+                redirect to "/outfits"
+                else
+                    redirect to '/login'
+                end
+            end
         
         
 

@@ -10,3 +10,9 @@
 <form action ="/outfits/<%=@outfit.id%>/edit" method = "post">
 <input type="submit" value="Edit Outfit">
 </form>
+<br>
+
+<form action ="/outfits/<%=@outfit.id%>" method = "post">
+<input type="hidden" name="_method" value="delete">
+<input type="submit" value="Delete Outfit">
+</form>
