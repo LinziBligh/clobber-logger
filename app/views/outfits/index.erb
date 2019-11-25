@@ -1,8 +1,5 @@
 <h1>Here are your lovely outfits!</h1>
 
-
-
-
 <%@outfits.each do |outfit|%>
 <%date=Helpers.reformat_date(outfit.date)%>
 <p><a href="/outfits/<%=outfit.id%>"><%=date%></a> - 
