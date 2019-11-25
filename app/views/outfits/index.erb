@@ -1,0 +1,15 @@
+<h1>Here are your lovely outfits!</h1>
+
+
+
+
+<%@outfits.each do |outfit|%>
+<p><%=outfit.date%> - 
+<%outfit.items.each do |item|%>
+<img src=<%=item.image%> width=80>
+<%=item.name+ "          "%>
+<%end%>
+<hr/>
+
+<%end%>
+

@@ -1,7 +1,13 @@
 class OutfitController < ApplicationController
 
     get "/outfits" do
-        "here are your lovely outfits"
+        if Helpers.is_logged_in?(session)
+            @user=User.find_by_id(session[:user_id])
+            @outfits=@user.outfits
+        erb :'outfits/index'
+        else
+            redirect to "users/login"
+        end
     end
 
     get "/outfits/new" do
@@ -14,7 +20,6 @@ class OutfitController < ApplicationController
         if params[:date]=="" || params[:item_ids].empty?
             redirect to '/oufits/new'
         else
-            binding.pry
             @outfit=Outfit.new
             @outfit.date=params[:date]
             @outfit.user_id=session[:user_id]
