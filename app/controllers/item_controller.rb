@@ -30,7 +30,6 @@ class ItemController < ApplicationController
     end
 
     get "/items/:id" do
-        binding.pry
         if Helpers.is_logged_in?(session)
         @item=Item.find_by_id(params[:id])
         @user=User.find_by_id(session[:user_id])
@@ -39,11 +38,11 @@ class ItemController < ApplicationController
         end
     end
 
-    delete  "/tweets/:id" do
-        @tweet=Tweet.find_by_id(params[:id])
-        if Helpers.is_logged_in?(session) && @tweet.user_id==session[:user_id]
-        @tweet.destroy
-        redirect to "/tweets"
+    delete  "/items/:id" do
+        @item=Item.find_by_id(params[:id])
+        if Helpers.is_logged_in?(session) && @item.user_id==session[:user_id]
+        @item.destroy
+        redirect to "/items"
         else
             redirect to '/login'
         end
