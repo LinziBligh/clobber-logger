@@ -4,7 +4,8 @@
 
 
 <%@outfits.each do |outfit|%>
-<p><a href="/outfits/<%=outfit.id%>"><%=outfit.date%></a> - 
+<%date=Helpers.reformat_date(outfit.date)%>
+<p><a href="/outfits/<%=outfit.id%>"><%=date%></a> - 
 <%outfit.items.each do |item|%>
 <img src=<%=item.image%> width=80>
 <%=item.name+ "          "%>
