@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
     if Helpers.is_logged_in?(session)
       redirect to '/items'
     else
-   erb :'/signup'
+   erb :'users/signup'
     end
   end
 
@@ -29,7 +29,7 @@ class ApplicationController < Sinatra::Base
       if Helpers.is_logged_in?(session)
         redirect to '/items'
       else
-      erb :'/login'
+      erb :'users/login'
       end
     end
 
