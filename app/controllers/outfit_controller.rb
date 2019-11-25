@@ -4,8 +4,9 @@ class OutfitController < ApplicationController
         "here are your lovely outfits"
     end
 
-    get "outfits/new" do
-        "make a new outfit"
+    get "/outfits/new" do
+        @items=Item.all
+        erb :"/outfits/new"
     end
 
 end
