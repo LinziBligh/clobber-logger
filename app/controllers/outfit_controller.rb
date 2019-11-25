@@ -31,4 +31,10 @@ class OutfitController < ApplicationController
             end
         end
 
+        get '/outfit/:id' do
+            @user=User.find_by_id(session[:user_id])
+            @outfit=Outfit.find_by_id(params[:id])
+            erb :'outfits/show'
+        end
+
 end

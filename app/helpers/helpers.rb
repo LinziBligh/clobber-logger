@@ -6,5 +6,9 @@ class Helpers
     def self.is_logged_in?(session)
       !!session[:user_id]
     end
+
+    def self.reformat_date(str)
+      str.split('-').reverse.join('-')
+    end
         
   end
