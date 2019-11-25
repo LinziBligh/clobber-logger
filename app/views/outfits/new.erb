@@ -1,14 +1,14 @@
 <h1>Make a New Outfit</h1>
 
-<form>
-<p>Date: <input type="date" id="start" name="trip-start"
+<form action="/outfits" method="post">
+<p>Date: <input type="date" id="date" name="date"
        value="<%=Time.now.strftime("%m/%d/%Y")%>"><p>
 
  <p>Your Items: 
  <br>
 <%@items.each do |item|%>
 <img src=<%=item.image%> width=80>
-<input type="checkbox" name="item_id" value="<%=item.id%>"><%=item.name%><br>
+<input type="checkbox" name="item_ids[]" value="<%=item.id%>"><%=item.name%><br>
 <%end%> 
 <br>
 <input type="submit" value="Add Outfit">     

@@ -1,5 +1,4 @@
 class OutfitItem < ActiveRecord::Base
-    belongs_to :user
-    belongs_to :outfits
-  
-  end
+    belongs_to :item
+    belongs_to :outfit
+end
