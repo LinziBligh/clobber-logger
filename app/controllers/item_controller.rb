@@ -30,6 +30,7 @@ class ItemController < ApplicationController
     end
 
     get "/items/:id" do
+        binding.pry
         if Helpers.is_logged_in?(session)
         @item=Item.find_by_id(params[:id])
         @user=User.find_by_id(session[:user_id])
