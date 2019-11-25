@@ -1,0 +1,20 @@
+<h1>"here are your items <%=@user.username%>"
+
+<ul>
+<%@items.each do |item|%>
+<li><img src="<%=item.image%>" width="80"> <%=item.name%></li>
+<%end%>
+
+<br>
+
+<form action="/items/new" method="get">
+<input type="submit" value="Add a new item">
+</form>
+
+<form action="/outfits/new" method="get">
+<input type="submit" value="Log an outfit">
+</form>
+
+<form action="/outfits" method="get">
+<input type="submit" value="Outfits History">
+</form>
