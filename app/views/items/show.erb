@@ -3,12 +3,18 @@
 <img src=<%=@item.image%> width=80>
 
 <h3>Item Cost: £<%=@item.cost%></h3>
-<h3>Item Category: <%=@item.category%></h3>
-<h3>Times Worn:</h3>
-<h3>Cost per Wear:</h3>
+<h3>Item Category:</h3>
+<h3>Times Worn: <%=@times_worn%></h3>
+<h3>Cost per Wear: £<%=@cpw%></h3>
+
+<hr>
 
 <h2>Outfit History</h2>
 <p>clickable list of dates here</p>
+
+
+<hr>
+<br>
 
 <form action="/items/<%=@item.id%>/edit" method=post>
 <input type="submit" value="Edit Item">

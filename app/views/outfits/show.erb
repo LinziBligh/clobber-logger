@@ -1,7 +1,7 @@
 <h1>Your outfit from <%=Helpers.reformat_date(@outfit.date)%> </h1>
 
 <%@outfit.items.each do |item|%>
-<img src="<%=item.image%>" width=80><%=item.name%>
+<a href="/items/<%=item.id%>"><img src="<%=item.image%>" width=80><%=item.name%>
 <br>
 <%end%>
 
