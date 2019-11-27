@@ -26,5 +26,14 @@ class Helpers
   item.cost.to_f/Helpers.times_worn(item)
     end
   end
+
+  #returns an array of all the users outfits that feature a particular item
+  def self.item_outfits(session, item)
+      user=Helpers.current_user(session)
+        item_outfits=user.outfits.select do |outfit| 
+            outfit.items.include?(item) 
+         end
+         item_outfits
+  end
         
   end

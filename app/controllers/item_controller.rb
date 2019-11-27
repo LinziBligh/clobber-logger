@@ -35,13 +35,7 @@ class ItemController < ApplicationController
         @user=User.find_by_id(session[:user_id])
         @times_worn=Helpers.times_worn(@item)
         @cpw=Helpers.cost_per_wear(@item)
-        #@item_outfits = []
-        #@user.outfits.each do |outfit| 
-           # if outfit.items.include?(@item) 
-                #@item_outfits << outfit
-           # end
-        #end
-    
+        @item_outfits=Helpers.item_outfits(session, @item)
         erb :"items/show"
         else redirect to "users/login"
         end

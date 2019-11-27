@@ -5,12 +5,14 @@
 <h3>Item Cost: £<%=@item.cost%></h3>
 <h3>Item Category:</h3>
 <h3>Times Worn: <%=@times_worn%></h3>
-<h3>Cost per Wear: £<%=@cpw%></h3>
+<h3>Cost per Wear: £<%=@cpw.round(2)%></h3>
 
 <hr>
 
 <h2>Outfit History</h2>
-<p>clickable list of dates here</p>
+<%@item_outfits.each do |outfit|%>
+<p><%=Helpers.reformat_date(outfit.date)%></p>
+<%end%>
 
 
 <hr>
