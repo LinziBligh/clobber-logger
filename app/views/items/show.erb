@@ -11,7 +11,7 @@
 
 <h2>Outfit History</h2>
 <%@item_outfits.each do |outfit|%>
-<p><%=Helpers.reformat_date(outfit.date)%></p>
+<p><a href="/outfits/<%=outfit.id%>"><%=Helpers.reformat_date(outfit.date)%></a></p>
 <%end%>
 
 
