@@ -32,3 +32,16 @@ items.each do |item|
     newitem.user=User.find_by_username("Linz")
     newitem.save
 end
+
+categories = [
+  {name: 'Footwear'},
+  {name: 'Tops'},
+  {name: 'Bottoms'},
+  {name: 'Accessories'},
+  {name: 'Jumpers/Cardigans'},
+  {name: 'Coats/Jackets'}
+]
+
+categories.each do |category|
+  Category.create(name: category[:name])
+end
