@@ -1,10 +1,17 @@
 <h1><%=@user.username%>'s Clobber</h1>
 
-<ul>
+<div class="cards">
 <%@items.each do |item|%>
-<li><a href="/items/<%=item.id%>"><img src="<%=item.image%>" width="80"></a> <%=item.name%></li>
+<div class="card">
+<a href="/items/<%=item.id%>"><img src="<%=item.image%>" style="width:100%"></a>
+<div class="container"> 
+    <div class="detail">
+        <%=item.name%></div>
+        </div>
+</div>
 <%end%>
-</ul>
+</div>
+
 
 <br>
 
