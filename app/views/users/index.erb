@@ -1,7 +1,7 @@
-<h2><%=@user.username%>'s Clobber</h2>
+<h2><%=@user.username%>'s Clobber - sorted by CPW (best to worst)</h2>
 
 <div class="cards">
-<%@items.each do |item|%>
+<%@cpwsorted.each do |item|%>
 <div class="card">
 <a href="/items/<%=item.id%>"><img src="<%=item.image%>" style="width:100%"></a>
 <div class="container"> 

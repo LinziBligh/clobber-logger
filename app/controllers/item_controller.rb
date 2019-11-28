@@ -1,10 +1,10 @@
 class ItemController < ApplicationController
 
     get '/items' do
-        @items=Item.all
-        #need to add helper methos for an indiviuals items instead of everyones
         if Helpers.is_logged_in?(session)
             @user=User.find_by_id(session[:user_id])
+            @items=@user.items
+            @cpwsorted=@items.sort_by{ |item| Helpers.cost_per_wear(item)}
         erb :'users/index'
         else
             redirect to "users/login"
