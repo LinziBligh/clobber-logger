@@ -5,8 +5,8 @@
 <div class="card">
 <a href="/items/<%=item.id%>"><img src="<%=item.image%>" style="width:100%"></a>
 <div class="container"> 
-    
-        <%=item.name%>
+    <%=item.name%>
+    <p>Cost per Wear: £<%=Helpers.cost_per_wear(item)%></p>
         </div>
 </div>
 <%end%>
