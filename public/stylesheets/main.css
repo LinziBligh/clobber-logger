@@ -49,6 +49,7 @@ h3 {
 
 p {
     text-align: center;
+    text-align: left;
 }
 
 .button {
@@ -56,6 +57,22 @@ p {
     font-size: 20px;
 }
 
-p {
-    text-align: left;
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex-basis: 100%;
+}
+
+@media screen and (min-width: 800px) {
+    .column {
+        flex: 1;
+    }
+}
+
+img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }

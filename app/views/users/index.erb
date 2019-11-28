@@ -6,7 +6,7 @@
 <a href="/items/<%=item.id%>"><img src="<%=item.image%>" style="width:100%"></a>
 <div class="container"> 
     <%=item.name%>
-    <p>Cost per Wear: £<%=Helpers.cost_per_wear(item)%></p>
+    <p>Cost per Wear: £<%=Helpers.cost_per_wear(item).round(2)%></p>
         </div>
 </div>
 <%end%>

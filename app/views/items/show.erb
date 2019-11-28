@@ -5,7 +5,12 @@
 <div class="container">
 <div class="container-txt">
 <h3>Item Cost: £<%=@item.cost%></h3>
-<h3> Item Category:</h3>
+<h3> Item Category: <%if !@item.category%>
+<h3>None selected</h3>
+<%else%>
+<%=@item.category.name%>
+<%end%>
+</h3>
 <h3>Times Worn: <%=@times_worn%></h3>
 <h3>Cost per Wear: £<%=@cpw.round(2)%></h3>
 </div>
