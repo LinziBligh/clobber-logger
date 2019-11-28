@@ -18,7 +18,7 @@ class OutfitController < ApplicationController
     post "/outfits" do
         @user=User.find_by_id(session[:user_id])
         if params[:date]=="" || params[:item_ids].empty?
-            redirect to '/oufits/new'
+            redirect to '/outfits/new'
         else
             @outfit=Outfit.new
             @outfit.date=params[:date]

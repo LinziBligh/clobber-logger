@@ -1,7 +1,8 @@
-<h1><%=@item.name%></h1>
+<div class="card"><h1><%=@item.name%></h1>
+</div>
 
 <div class="card">
-<img class="container-img" src=<%=@item.image%> width=40%>
+<img class="container-img" src=<%=@item.image%> width=32.5%>
 <div class="container">
 <div class="container-txt">
 <h3>Item Cost: £<%=@item.cost%></h3>
@@ -19,9 +20,15 @@
 <hr>
 
 <h2>Outfit History</h2>
+<div class="cards">
 <%@item_outfits.each do |outfit|%>
-<p><a class="outfit-date" href="/outfits/<%=outfit.id%>"><%=Helpers.reformat_date(outfit.date)%></a></p>
+<div class="date-card">
+<div class="container">
+<a id="outfit-date" href="/outfits/<%=outfit.id%>"><%=Helpers.reformat_date(outfit.date)%></a>
+</div>
+</div>
 <%end%>
+</div>
 
 
 <hr>
