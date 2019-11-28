@@ -30,11 +30,11 @@ class ApplicationController < Sinatra::Base
   end
 
     get '/login' do
-      #if Helpers.is_logged_in?(session)
-        #redirect to '/items'
-      #else
+      if Helpers.is_logged_in?(session)
+        redirect to '/items'
+      else
       erb :'users/login'
-      #end
+      end
     end
 
     post '/signup' do

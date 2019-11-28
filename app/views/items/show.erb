@@ -1,35 +1,40 @@
 <h1><%=@item.name%></h1>
 
-<img src=<%=@item.image%> width=80>
-
+<div class="card">
+<img class="container-img" src=<%=@item.image%> width=40%>
+<div class="container">
+<div class="container-txt">
 <h3>Item Cost: £<%=@item.cost%></h3>
-<h3>Item Category:</h3>
+<h3> Item Category:</h3>
 <h3>Times Worn: <%=@times_worn%></h3>
 <h3>Cost per Wear: £<%=@cpw.round(2)%></h3>
+</div>
+</div>
 
 <hr>
 
 <h2>Outfit History</h2>
 <%@item_outfits.each do |outfit|%>
-<p><a href="/outfits/<%=outfit.id%>"><%=Helpers.reformat_date(outfit.date)%></a></p>
+<p><a class="outfit-date" href="/outfits/<%=outfit.id%>"><%=Helpers.reformat_date(outfit.date)%></a></p>
 <%end%>
 
 
 <hr>
 <br>
 
-<form action="/items/<%=@item.id%>/edit" method=post>
+<form class="button" action="/items/<%=@item.id%>/edit" method=post>
 <input type="submit" value="Edit Item">
 </form>
 
-<form action="/items/<%=@item.id%>" method=post>
+<form class="button" action="/items/<%=@item.id%>" method=post>
 <input type="hidden" name="_method" value="delete">
 <input type="submit" value="Delete Item">
 </form>
 
-<form action="/items" method=get>
+<form class="button" action="/items" method=get>
 <input type="submit" value="Back to your clobber">
 </form>
+
 
 
 

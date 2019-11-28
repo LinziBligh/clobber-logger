@@ -1,4 +1,4 @@
-<h1>Make a New Outfit</h1>
+<h2>Make a New Outfit</h2>
 
 <form action="/outfits" method="post">
 <p>Date: <input type="date" id="date" name="date"
@@ -8,8 +8,11 @@
  <br>
  <span class= "cards">
       <%@items.each do |item|%>
+      
 
-<label for id="checkbox<%=item.id%>"><img src=<%=item.image%> width=80></label>
+<label for id="checkbox<%=item.id%>"><img class="card" src=<%=item.image%> width=80><%=item.name%>
+
+</label>
 <input type="checkbox"  id="checkbox<%=item.id%>" name="item_ids[]" value="<%=item.id%>">
             
             
