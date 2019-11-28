@@ -6,11 +6,19 @@
 
  <p>Your Items: 
  <br>
-<%@items.each do |item|%>
-<img src=<%=item.image%> width=80>
-<input type="checkbox" name="item_ids[]" value="<%=item.id%>"><%=item.name%><br>
-<%end%> 
+ <span class= "cards">
+      <%@items.each do |item|%>
+
+<label for id="checkbox<%=item.id%>"><img src=<%=item.image%> width=80></label>
+<input type="checkbox"  id="checkbox<%=item.id%>" name="item_ids[]" value="<%=item.id%>">
+            
+            
+      <%end%> 
+      </span>
+      
+     
 <br>
+<hr>
 <input type="submit" value="Add Outfit">     
 </form>
 
