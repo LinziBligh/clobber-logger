@@ -6,13 +6,17 @@ class OutfitController < ApplicationController
             @outfits=@user.outfits
         erb :'outfits/index'
         else
-            redirect to "users/login"
+            redirect to "/login"
         end
     end
 
     get "/outfits/new" do
+        if Helpers.is_logged_in?(session)
         @items=Item.all
         erb :"/outfits/new"
+        else
+        redirect to "/login" 
+        end
     end
 
     post "/outfits" do
@@ -32,9 +36,12 @@ class OutfitController < ApplicationController
         end
 
         get '/outfits/:id' do
+            if Helpers.is_logged_in?(session)
             @user=User.find_by_id(session[:user_id])
             @outfit=Outfit.find_by_id(params[:id])
             erb :'outfits/show'
+            else redirect to '/login'
+            end
         end
 
         post '/outfits/:id/edit' do

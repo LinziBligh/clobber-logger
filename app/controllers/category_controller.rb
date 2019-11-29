@@ -18,7 +18,7 @@ class CategoryController < ApplicationController
             @itemssorted=@items.sort_by{ |item| Helpers.cost_per_wear(item)}
         erb :'categories/show'
         else
-           redirect to "users/login"
+           redirect to "/login"
         end
     end
     
