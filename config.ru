@@ -5,7 +5,9 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
+use CategoryController
 use OutfitController
 use ItemController
 use SessionsController
 run ApplicationController
+
