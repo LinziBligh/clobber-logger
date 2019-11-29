@@ -7,7 +7,7 @@ class ItemController < ApplicationController
             @cpwsorted=@items.sort_by{ |item| Helpers.cost_per_wear(item)}
         erb :'users/index'
         else
-            redirect to "/login"
+            redirect to "/"
         end
     end
 
@@ -15,7 +15,7 @@ class ItemController < ApplicationController
         if Helpers.is_logged_in?(session)
         erb :"items/new"
         else 
-        redirect to "/login"
+        redirect to "/"
         end
     end
 
@@ -37,7 +37,7 @@ class ItemController < ApplicationController
         @cpw=Helpers.cost_per_wear(@item)
         @item_outfits=Helpers.item_outfits(session, @item)
         erb :"items/show"
-        else redirect to "/login"
+        else redirect to "/"
         end
     end
 
@@ -47,7 +47,7 @@ class ItemController < ApplicationController
         @item.destroy
         redirect to "/items"
         else
-            redirect to '/login'
+            redirect to '/'
         end
     end
 
@@ -56,16 +56,16 @@ class ItemController < ApplicationController
         @item=Item.find_by_id(params[:id])
         @user=User.find_by_id(session[:user_id])
         erb :"items/edit" 
-        else redirect to "/login"  
+        else redirect to "/"  
         end 
     end
 
-    get "/tweets/:id/edit" do
+    get "/items/:id/edit" do
         if Helpers.is_logged_in?(session)
-        @tweet=Tweet.find_by_id(params[:id])
+        @item=Item.find_by_id(params[:id])
         @user=User.find_by_id(session[:user_id])
-        erb :"tweets/edit" 
-        else redirect to "/login"  
+        erb :"items/edit" 
+        else redirect to "/"  
         end 
     end
 

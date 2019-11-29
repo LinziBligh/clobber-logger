@@ -1,8 +1,11 @@
 class CategoryController < ApplicationController
     
     get "/categories" do
+        if Helpers.is_logged_in?(session)
         @categories=Category.all
         erb :"/categories/index"
+        else redirect to "/"
+        end
     end
 
     get "/categories/:id" do
@@ -18,7 +21,7 @@ class CategoryController < ApplicationController
             @itemssorted=@items.sort_by{ |item| Helpers.cost_per_wear(item)}
         erb :'categories/show'
         else
-           redirect to "/login"
+           redirect to "/"
         end
     end
     

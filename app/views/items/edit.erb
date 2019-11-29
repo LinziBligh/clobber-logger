@@ -1,6 +1,6 @@
 <h1>Edit your item</h1>
 
-<form action="/items/<%=@item.id%>" method="post">
+<form class="button" action="/items/<%=@item.id%>" method="post">
 <input type="hidden" name="_method" value="patch">
 <p>Item Description (ie Everlane black t-shirt): <input type="text" name="name" value="<%=@item.name%>"></p>
 <p>Item Cost (£): <input type="integer" name="cost" value="<%=@item.cost%>"></p>
@@ -10,5 +10,12 @@
 <option value="<%=category.id%>"><%=category.name%></option>
  <%end%>
 </select></p>
+<hr>
 <input type="submit" value="Edit Item" >
+</form>
+
+<br>
+
+<form class="button" action="/items" method=get>
+<input type="submit" value="Back to your clobber">
 </form>
