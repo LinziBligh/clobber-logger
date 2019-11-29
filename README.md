@@ -7,8 +7,8 @@ Welcome to ClobberLogger! This app allows you log in, add items of clobber(cloth
 
 Run this line first:
 
-```bundle install
-```
+bundle install
+
 
 And then execute:
 
