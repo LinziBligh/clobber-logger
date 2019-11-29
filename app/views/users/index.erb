@@ -1,6 +1,21 @@
-<h2><%=@user.username%>'s Clobber - sorted by CPW (best to worst)</h2>
+<h2><%=@user.username%>'s Clobber</h2>
 
 <div class="cards">
+<div class="card">
+<div>
+ <p id="best-text" style="
+ background-color: #14f1588c;
+    font-size: 1.25em;
+    padding: 50;
+    ">Best Cost per Wear 
+    <br>
+    <br>
+    <br>
+    <br>
+ You are wearing these items the most,
+    keep it up!</p>
+</div>
+</div>
 <%@cpwsorted.each do |item|%>
 <div class="card">
 <a href="/items/<%=item.id%>"><img src="<%=item.image%>" style="width:100%"></a>
@@ -10,6 +25,24 @@
         </div>
 </div>
 <%end%>
+
+<div class="card">
+<div>
+ <p id="worst-text" style="
+ background-color: #ff000073;
+    font-size: 1.25em;
+    padding: 50;
+    ">Worst Cost per Wear 
+    <br>
+    <br>
+    <br>
+    <br>
+ You need to wear these items more often, if not perhaps think about selling or donating them?
+    Remember to try to shop conciously!</p>
+</div>
+</div>
+</div>
+
 </div>
 
 

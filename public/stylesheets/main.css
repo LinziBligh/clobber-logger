@@ -93,5 +93,12 @@ img {
     background-color: lightblue
 }
 
-
+p#best-text {
+    <p id="best-text" style="
+ background-color: #14f158;
+    font-size: 1.75em;
+    padding: 30;
+    ">best cost per wear <br>
+ you are doing great with items at this end,
+    keep it up!</p>
 }
