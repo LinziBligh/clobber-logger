@@ -1,0 +1,71 @@
+
+<h2><%=@category.name%> Category</h2>
+
+<div class="cards">
+<div class="card">
+<div>
+ <p id="best-text" style="
+ background-color: #14f1588c;
+    font-size: 1.25em;
+    padding: 50;
+    ">Best Cost per Wear 
+    <br>
+    <br>
+    <br>
+    <br>
+ You are wearing these items the most,
+    keep it up!</p>
+</div>
+</div>
+<%@itemssorted.each do |item|%>
+<div class="card">
+<a href="/items/<%=item.id%>"><img src="<%=item.image%>" style="width:100%"></a>
+<div class="container"> 
+    <%=item.name%>
+    <p>Cost per Wear: £<%=Helpers.cost_per_wear(item).round(2)%></p>
+        </div>
+</div>
+<%end%>
+
+<div class="card">
+<div>
+ <p id="worst-text" style="
+ background-color: #ff000073;
+    font-size: 1.25em;
+    padding: 50;
+    ">Worst Cost per Wear 
+    <br>
+    <br>
+    <br>
+    <br>
+ You need to wear these items more often, if not perhaps think about selling or donating them?
+    Remember to try to shop conciously!</p>
+</div>
+</div>
+</div>
+
+</div>
+
+
+<br>
+<hr>
+
+<form action="/categories" method="get">
+<input type="submit" value="View by category">
+</form>
+
+<form action="/items/new" method="get">
+<input type="submit" value="Add a new item">
+</form>
+
+<form action="/outfits/new" method="get">
+<input type="submit" value="Log an outfit">
+</form>
+
+<form action="/outfits" method="get">
+<input type="submit" value="Outfits History">
+</form>
+
+<form action="/logout" method="post">
+<input type="submit" value="Log Out">
+</form>
