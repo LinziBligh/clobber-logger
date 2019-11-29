@@ -14,9 +14,15 @@ class Helpers
     def self.times_worn(item)
       user_id=item.user_id
       user=User.find_by_id(user_id)
-      user.outfits.count { 
-        |outfit| outfit.items.include?(item) 
-      } 
+      result=[]
+      user.outfits.each do |outfit| 
+        outfit.items.each do |outfititem|
+          if outfititem== item
+            result << item
+          end
+        end
+      end 
+      result.length
     end
 
   def self.cost_per_wear(item)

@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     get '/logout' do
         if Helpers.is_logged_in?(session)
             session.clear
-            redirect to '/login'
+            redirect to '/'
             else
                 redirect to '/' 
             end
@@ -12,9 +12,9 @@ class SessionsController < ApplicationController
     post '/logout' do
         if Helpers.is_logged_in?(session)
         session.clear
-        redirect to '/login'
+        redirect to '/'
         else
-            redirect to '/login' 
+            redirect to '/' 
         end
     end
 
