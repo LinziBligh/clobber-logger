@@ -5,7 +5,7 @@ class CategoryController < ApplicationController
         erb :"/categories/index"
     end
 
-    get "/category/:id" do
+    get "/categories/:id" do
         if Helpers.is_logged_in?(session)
             @user=User.find_by_id(session[:user_id])
             @category=Category.find_by_id(params[:id])

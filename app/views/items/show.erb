@@ -9,7 +9,7 @@
 <h3> Item Category: <%if !@item.category%>
 <h3>None selected</h3>
 <%else%>
-<%=@item.category.name%>
+<a href="/categories/<%=@item.category.id%>"><%=@item.category.name%></a>
 <%end%>
 </h3>
 <h3>Times Worn: <%=@times_worn%></h3>
