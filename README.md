@@ -1,5 +1,6 @@
 
 # ClobberLogger
+Demo account Username:Linz Password:test
 
 Welcome to ClobberLogger! This app allows you log in, add items of clobber(clothing) to your wardrobe, log outfits using the items and to see which items are working out best for you economically in terms of cost-per-wear.
 
