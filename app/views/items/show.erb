@@ -1,52 +1,62 @@
-<div class="card"><h1><%=@item.name%></h1>
+<div class="card">
+    <h1>
+        <%=@item.name%>
+    </h1>
 </div>
 
 <div class="card">
-  <img class="container-img" src=<%=@item.image%> width=32.5%>
-<div class="container">
-<div class="container-txt">
-<h3>Item Cost: £<%=@item.cost%></h3>
-<h3> Item Category: <%if !@item.category%>
-<h3>None selected</h3>
-<%else%>
-<a href="/categories/<%=@item.category.id%>"><%=@item.category.name%></a>
-<%end%>
-</h3>
-<h3>Times Worn: <%=@times_worn%></h3>
-<h3>Cost per Wear: £<%=@cpw.round(2)%></h3>
-</div>
-</div>
+    <img class="container-img" src=<%=@item.image%> width=32.5%>
+    <div class="container">
+        <div class="container-txt">
+            <h3>Item Cost: £
+                <%=@item.cost%>
+            </h3>
+            <h3> Item Category:
+                <%if !@item.category%>
+                    <h3>None selected</h3>
+                    <%else%>
+                        <a href="/categories/<%=@item.category.id%>">
+                            <%=@item.category.name%>
+                        </a>
+                        <%end%>
+            </h3>
+            <h3>Times Worn:
+                <%=@times_worn%>
+            </h3>
+            <h3>Cost per Wear: £
+                <%=@cpw.round(2)%>
+            </h3>
+        </div>
+    </div>
 
-<hr>
+    <hr>
 
-<h2>Outfit History</h2>
-<div class="cards">
-<%@item_outfits.each do |outfit|%>
-<div class="date-card">
-<div class="container">
-<a id="outfit-date" href="/outfits/<%=outfit.id%>"><%=Helpers.reformat_date(outfit.date)%></a>
-</div>
-</div>
-<%end%>
-</div>
-
-
-<hr>
-<br>
-
-<form class="button" action="/items/<%=@item.id%>/edit" method=post>
-<input type="submit" value="Edit Item">
-</form>
-
-<form class="button" action="/items/<%=@item.id%>" method=post>
-<input type="hidden" name="_method" value="delete">
-<input type="submit" value="Delete Item">
-</form>
-
-<form class="button" action="/items" method=get>
-<input type="submit" value="Back to your clobber">
-</form>
+    <h2>Outfit History</h2>
+    <div class="cards">
+        <%@item_outfits.each do |outfit|%>
+            <div class="date-card">
+                <div class="container">
+                    <a id="outfit-date" href="/outfits/<%=outfit.id%>">
+                        <%=Helpers.reformat_date(outfit.date)%>
+                    </a>
+                </div>
+            </div>
+            <%end%>
+    </div>
 
 
+    <hr>
+    <br>
 
+    <form class="button" action="/items/<%=@item.id%>/edit" method=post>
+        <input type="submit" value="Edit Item">
+    </form>
 
+    <form class="button" action="/items/<%=@item.id%>" method=post>
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete Item">
+    </form>
+
+    <form class="button" action="/items" method=get>
+        <input type="submit" value="Back to your clobber">
+    </form>

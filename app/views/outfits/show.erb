@@ -1,39 +1,26 @@
 <h1>Your outfit from <%=Helpers.reformat_date(@outfit.date)%> </h1>
-
 <div class="cards">
-<%@outfit.items.each do |item|%>
-<div class = "card">
-<a href="/items/<%=item.id%>"><img src="<%=item.image%>" width=100%>
-<div class ="container"><%=item.name%></div>
-</div>
-<%end%>
-</div>
-
-
-
-
-
-
-
-<br>
-
-<form action ="/outfits/<%=@outfit.id%>/edit" method = "post">
-<input type="submit" value="Edit Outfit">
-</form>
-<br>
-
-<form action ="/outfits/<%=@outfit.id%>" method = "post">
-<input type="hidden" name="_method" value="delete">
-<input type="submit" value="Delete Outfit">
-</form>
-
-<br>
-
-<form action="/outfits" method="get">
-<input type="submit" value="Back to Outfits History">
-</form>
-<br>
-
-<form action="/items" method=get>
-<input type="submit" value="Back to your clobber">
-</form>
+  <%@outfit.items.each do |item|%>
+    <div class = "card">
+      <a href="/items/<%=item.id%>"><img src="<%=item.image%>" width=100%>
+        <div class ="container"><%=item.name%></div>
+      </div>
+    <%end%>
+  </div>
+  <br>
+  <form action ="/outfits/<%=@outfit.id%>/edit" method = "post">
+    <input type="submit" value="Edit Outfit">
+  </form>
+  <br>
+  <form action ="/outfits/<%=@outfit.id%>" method = "post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Outfit">
+  </form>
+  <br>
+  <form action="/outfits" method="get">
+    <input type="submit" value="Back to Outfits History">
+  </form>
+  <br>
+  <form action="/items" method=get>
+    <input type="submit" value="Back to your clobber">
+  </form>

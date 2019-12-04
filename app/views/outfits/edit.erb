@@ -1,20 +1,17 @@
 <h1>here is the outfit edit form</h1>
-
 <form action="/outfits/<%=@outfit.id%>" method="post">
-<input type="hidden" name="_method" value="patch">
-<p>Date: <input type="date" id="date" name="date"
-       value="<%=@outfit.date%>"><p>
-
- <p>Edit the items in your outfit: 
- <br>
-<%@user.items.each do |item|%>
-<img src=<%=item.image%> width=80>
-<input type="checkbox" name="item_ids[]" value="<%=item.id%>" 
-<%if @outfit.items.include?(item)%>
-<%="checked"%>
-<%end%>>
-<%=item.name%><br>
-<%end%> 
-<br>
-<input type="submit" value="Add Outfit">     
-</form>
+  <input type="hidden" name="_method" value="patch">
+  <p>Date: <input type="date" id="date" name="date" value="<%=@outfit.date%>">
+    <p>
+      <p>Edit the items in your outfit:
+        <br>
+        <%@user.items.each do |item|%>
+          <img src=<%=item.image%> width=80>
+          <input type="checkbox" name="item_ids[]" value="<%=item.id%>" <%if @outfit.items.include?(item)%>
+                    <%="checked"%>
+                        <%end%>>
+          <%=item.name%><br>
+        <%end%>
+        <br>
+        <input type="submit" value="Add Outfit">
+      </form>

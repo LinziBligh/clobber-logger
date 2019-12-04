@@ -1,27 +1,15 @@
 <h2>Here are your logged outfits!</h2>
-
-
 <%@outfits.each do |outfit|%>
-<div class="row">
-<div class="card"><a href="/outfits/<%=outfit.id%>" id="date"><%=Helpers.reformat_date(outfit.date)%></a></div>
-
-<%outfit.items.each do |item|%>
-<div class="column">
-
-<a href= "/items/<%=item.id%>"><img class="outfit-img" src=<%=item.image%> width=100%></a>
-
-<p><a href="/items/<%=item.id%>"><%=item.name%></a></p>
-
-
-</div>
+  <div class="row">
+    <div class="card"><a href="/outfits/<%=outfit.id%>" id="date"><%=Helpers.reformat_date(outfit.date)%></a></div>
+    <%outfit.items.each do |item|%>
+      <div class="column">
+        <a href= "/items/<%=item.id%>"><img class="outfit-img" src=<%=item.image%> width=100%></a>
+        <p><a href="/items/<%=item.id%>"><%=item.name%></a></p>
+      </div>
+    <%end%>
+  </div>
 <%end%>
-</div>
-<%end%>
-
-
 <form action="/items" method=get>
-<input type="submit" value="Back to your clobber">
+  <input type="submit" value="Back to your clobber">
 </form>
-
-
-
