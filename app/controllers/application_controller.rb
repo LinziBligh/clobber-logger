@@ -47,5 +47,16 @@ class ApplicationController < Sinatra::Base
       end
     end
 
+    helpers do
+
+      def redirect_if_not_auth(item)
+        user=Helpers.current_user(session)
+        if item.user.id != user.id
+          redirect to '/items'
+        end
+
+      end
+
+    end
 
 end
